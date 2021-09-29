@@ -8,12 +8,15 @@ app.secret_key = "secret"
 def welcome():
     if not 'number' in session:
         session['number'] = random.randint(1,100)
+        session['attempts'] = 1
+    else:
+        session['attempts'] +=1
     return render_template( "index.html")
 
 @app.route( "/compare", methods=['GET'] )
 def closeSession():
     if 'number' in session:
-        result = { "number": session['number']}
+        result = { "number": session['number'], "attempts": session['attempts']}
         return result
     else:
         return redirect('/')

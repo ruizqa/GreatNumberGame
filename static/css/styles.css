@@ -1,0 +1,22 @@
+.box{
+    height: 300px;
+    width:300px;
+    border: 2px solid black;
+    position:center;
+    margin:auto;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+}
+
+.success{
+
+    background-color: green;
+
+}
+
+.fail{
+    background-color: red;
+
+}
+

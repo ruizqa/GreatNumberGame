@@ -20,7 +20,7 @@ async function updatePage(event){
 
         let text= document.createTextNode("Try Again! Choose a higher number!")
         result.appendChild(text);
-        result.classList.add('bg-warning')
+        result.classList.add('box','fail')
         
 
     }
@@ -28,19 +28,19 @@ async function updatePage(event){
     else if (value > data['number'] ){
         let text= document.createTextNode("Try Again! Choose a lower number!")
         result.appendChild(text);
-        result.classList.add('bg-info')
+        result.classList.add('box','fail')
         
 
     }
 
     else if (value == data['number'] ){
-        let text= document.createTextNode(`Success! You chose the correct number: ${value}!`)
+        let text= document.createTextNode(`Success! You chose the correct number: ${value} in ${data['attempts']} attempts!`)
         result.appendChild(text);
-        result.classList.add('bg-success', 'my-5')
+        result.classList.add('box', 'success')
         event.target.remove()
         let try_again = document.createElement('button');
-        try_again.classList.add('btn','btn-primary')
-        try_again.innerHTML="Try Again"
+        try_again.classList.add('btn','btn-light', 'm-3')
+        try_again.innerHTML="Play Again!"
         try_again.onclick= function() {window.location.href='/reset'};
         result.appendChild(try_again);
 
